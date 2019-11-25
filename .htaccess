@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} (.*)
+RewriteCond %{REQUEST_URI} $ [NC]
+RewriteRule ^(.*)(/)$ $1 [L,R=301]
+
+RewriteRule ^$	index.php?section=index&page=index [QSA,L]
+RewriteRule ^signup$	index.php?section=index&page=signup [QSA,L]
+RewriteRule ^signin$	index.php?section=index&page=index [QSA,L]
+RewriteRule ^cabinet/confirm/([^/]*)/([^/]*)$	index.php?section=cabinet&page=confirm&userid=$1&confirmdode=$2 [QSA,L]
+RewriteRule ^api/([^/]*)/([^/]*)$	index.php?section=api&method=$1&page=$2 [QSA,L]
